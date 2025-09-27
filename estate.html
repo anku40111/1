@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Estate Planning Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Estate Planning Pro — news, guides, and tools to plan your legacy." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+   <style>
+        /* Design tokens (3-5 colors total) */
+:root {
+  --color-bg: #0f172a; /* slate-900 */
+  --color-surface: #111827; /* gray-900 */
+  --color-surface-2: #0b1224; /* deep variant */
+  --color-text: #e5e7eb; /* gray-200 */
+  --color-muted: #9ca3af; /* gray-400 */
+  --color-primary: #2563eb; /* blue-600 */
+  --color-accent: #059669; /* emerald-600 */
+  --radius: 0.75rem;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --maxw: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--color-bg), var(--color-surface-2));
+  color: var(--color-text);
+  font:
+    16px / 1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(17, 24, 39, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.brand {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.6rem;
+  background: radial-gradient(circle at 30% 30%, var(--color-primary), var(--color-accent));
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: white;
+}
+.brand-title {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.brand-subtitle {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.search input {
+  height: 40px;
+  padding: 0 0.75rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0b1327;
+  color: var(--color-text);
+}
+.btn-primary {
+  height: 40px;
+  padding: 0 0.9rem;
+  border: 0;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.tabs {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.tablist {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  list-style: none;
+  margin: 0;
+  flex-wrap: wrap;
+}
+.tablist button {
+  appearance: none;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+.tablist button[aria-selected="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.layout {
+  display: flex;
+  gap: 1.25rem;
+  padding-block: 1.25rem;
+}
+.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+.sidebar {
+  width: 320px;
+  flex: 0 0 auto;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.is-clickable {
+  cursor: pointer;
+}
+.is-clickable:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 200px;
+}
+.featured-media {
+  background: linear-gradient(135deg, #1f2a44, #0b1224);
+}
+.featured-body {
+  padding: 1rem;
+}
+.eyebrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  margin: 0 0 0.25rem 0;
+}
+.meta {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+.muted {
+  color: var(--color-muted);
+}
+
+.articles .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.article-card {
+  display: grid;
+  grid-template-rows: 120px auto;
+}
+.card-media {
+  background: linear-gradient(135deg, #19203b, #0b1224);
+}
+.card-body {
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.section-title {
+  margin: 0.9rem;
+  font-size: 1.1rem;
+}
+.news-list {
+  margin: 0;
+  padding: 0 0.9rem 0.9rem;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+.news-item a {
+  display: block;
+  padding: 0.65rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.6rem;
+}
+.news-item a:hover {
+  background: rgba(37, 99, 235, 0.15);
+  text-decoration: none;
+}
+.news-item .source {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.newsletter {
+  padding-bottom: 0.9rem;
+}
+.newsletter form {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.9rem;
+}
+.newsletter input {
+  height: 42px;
+  padding: 0 0.75rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0b1327;
+  color: var(--color-text);
+}
+.status {
+  padding: 0 0.9rem;
+  color: var(--color-accent);
+  min-height: 1.2em;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+}
+.modal[aria-hidden="false"] {
+  display: grid;
+  place-items: center;
+}
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: #000; /* was rgba(0, 0, 0, 0.5) */
+}
+.modal-dialog {
+  position: relative;
+  width: min(900px, 92vw);
+  max-height: 85vh;
+  background: #000; /* was semi-transparent gradient */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.modal-scroll {
+  max-height: 85vh;
+  overflow: auto;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+.modal-article {
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.prose p {
+  margin: 0.5rem 0;
+}
+.prose ul {
+  margin: 0.5rem 0 0.5rem 1.25rem;
+}
+.source-link {
+  margin-top: 0.5rem;
+}
+.source-link a {
+  display: inline-block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  background: rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .articles .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sidebar {
+    width: 300px;
+  }
+}
+@media (max-width: 820px) {
+  .layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: auto;
+  }
+  .featured {
+    grid-template-columns: 1fr;
+  }
+  .featured-media {
+    height: 140px;
+  }
+  .articles .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Utility */
+.text-balance {
+  text-wrap: balance;
+}
+
+    </style>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">EP</div>
+          <div>
+            <h1 class="brand-title text-balance">Estate Planning Pro</h1>
+            <p class="brand-subtitle">Guides, insights, and the latest in estate planning</p>
+          </div>
+        </div>
+        <form id="search-form" class="search" role="search" aria-label="Site search">
+          <label for="search-input" class="sr-only">Search articles</label>
+          <input id="search-input" name="q" type="search" placeholder="Search articles..." />
+          <button type="submit" class="btn-primary">Search</button>
+        </form>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Sections">
+      <div class="container">
+        <ul class="tablist" role="tablist" id="tablist">
+           Tabs are injected by JS from available categories 
+        </ul>
+      </div>
+    </nav>
+
+    <main id="main" class="container layout">
+      <section class="content" aria-label="Main articles">
+        <article id="featured" class="featured card is-clickable" tabindex="0" aria-describedby="featured-desc">
+          <div class="featured-media" aria-hidden="true"></div>
+          <div class="featured-body">
+            <p class="eyebrow" id="featured-category">Featured</p>
+            <h2 id="featured-title">Loading featured article…</h2>
+            <p id="featured-desc" class="muted">Please wait while we load the article content.</p>
+            <div class="meta" id="featured-meta"></div>
+          </div>
+        </article>
+
+        <section aria-labelledby="articles-heading" class="articles">
+          <h2 id="articles-heading" class="sr-only">Articles</h2>
+          <div id="articles-grid" class="grid">
+             Cards injected by JS 
+          </div>
+        </section>
+      </section>
+
+      <aside class="sidebar" aria-label="Latest and newsletter">
+        <section class="news card">
+          <h2 class="section-title">Latest Estate Planning News</h2>
+          <ul id="news-list" class="news-list">
+             News items injected by JS 
+          </ul>
+        </section>
+
+        <section class="newsletter card">
+          <h2 class="section-title">Get weekly insights</h2>
+          <p class="muted">Actionable tips and curated news. No spam, unsubscribe anytime.</p>
+          <form id="newsletter-form" novalidate>
+            <label for="nl-email" class="sr-only">Email address</label>
+            <input id="nl-email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            <button type="submit" class="btn-primary">Subscribe</button>
+          </form>
+          <p id="newsletter-status" class="status" role="status" aria-live="polite"></p>
+        </section>
+      </aside>
+    </main>
+
+     Accessible Modal 
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-dismiss tabindex="-1" aria-hidden="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+        <button class="modal-close" data-dismiss aria-label="Close article">×</button>
+        <div class="modal-scroll">
+          <article class="modal-article">
+            <p class="eyebrow" id="modal-category"></p>
+            <h3 id="modal-title">Article title</h3>
+            <p id="modal-meta" class="meta"></p>
+            <p id="modal-desc" class="muted">Full article content follows.</p>
+            <div id="modal-body" class="prose">
+               Full content injected by JS 
+            </div>
+            <div class="source-link">
+              <a id="modal-source" href="#" target="_blank" rel="noopener">Read original source</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+     Card template 
+    <template id="card-template">
+      <article class="card article-card is-clickable" tabindex="0">
+        <div class="card-media" aria-hidden="true"></div>
+        <div class="card-body">
+          <p class="eyebrow card-category"></p>
+          <h3 class="card-title"></h3>
+          <p class="card-summary muted"></p>
+          <div class="meta card-meta"></div>
+        </div>
+      </article>
+    </template>
+
+    <script>
+        /* ---------------------------
+   Data (you can add more easily)
+---------------------------- */
+const articles = [
+  {
+    id: "a1",
+    title: "Essential Estate Planning: Wills, Trusts, and Beneficiaries",
+    category: "Guides",
+    summary: "Understand core documents and how to keep your plan aligned with your goals.",
+    content: [
+      "Estate planning ensures your assets are distributed according to your wishes and that loved ones are protected.",
+      "Key documents include: a last will and testament, one or more trusts (if appropriate), durable power of attorney, and healthcare directives.",
+      "Beneficiary designations on retirement accounts and life insurance often override your will—review them annually.",
+      "Work with a qualified attorney when your situation involves minor children, complex assets, or multi-state property.",
+    ],
+    bullets: [
+      "Create or update a will and name guardians for minors.",
+      "Review beneficiary designations after major life events.",
+      "Consider a revocable living trust for privacy and flexibility.",
+      "Document healthcare wishes and appoint a healthcare proxy.",
+    ],
+    author: "Alex Morgan",
+    date: "Sep 24, 2025",
+    readTime: "6 min",
+    sourceUrl: "https://example.com/guides/estate-planning-101",
+  },
+  {
+    id: "a2",
+    title: "Understanding Revocable vs. Irrevocable Trusts",
+    category: "Trusts",
+    summary: "When flexibility matters and when asset protection takes priority.",
+    content: [
+      "Revocable trusts allow changes during your lifetime and avoid probate, while irrevocable trusts are more rigid but can offer stronger asset protection and tax benefits.",
+      "Evaluate your goals: control and flexibility vs. protection and potential tax planning.",
+      "Always assess state-specific rules and consult professionals for tailored advice.",
+    ],
+    bullets: [
+      "Revocable = control; Irrevocable = protection/tax planning.",
+      "Both can streamline transfer of assets outside probate.",
+      "Consider trustee selection and successor planning.",
+    ],
+    author: "Priya Shah",
+    date: "Sep 20, 2025",
+    readTime: "5 min",
+    sourceUrl: "https://example.com/trusts/revocable-vs-irrevocable",
+  },
+  {
+    id: "a3",
+    title: "Avoiding Probate: Strategies for a Smoother Transition",
+    category: "Strategies",
+    summary: "From beneficiary designations to transfer-on-death deeds.",
+    content: [
+      "Probate can be time-consuming and public. Many assets can pass outside probate through beneficiary designations and joint ownership.",
+      "For real estate, transfer-on-death deeds (where available) can help pass property efficiently.",
+      "Trusts are powerful tools to manage assets privately and reduce administrative burden.",
+    ],
+    bullets: [
+      "Use TOD/POD titles where permitted.",
+      "Keep beneficiary records current.",
+      "Leverage trusts to avoid public court processes.",
+    ],
+    author: "Jordan Lee",
+    date: "Sep 18, 2025",
+    readTime: "4 min",
+    sourceUrl: "https://example.com/strategies/avoid-probate",
+  },
+  {
+    id: "a4",
+    title: "How Often Should You Update Your Estate Plan?",
+    category: "Guides",
+    summary: "Major life events and a two-year checkup can keep plans aligned.",
+    content: [
+      "Update after marriage, divorce, births, deaths, moves, and major financial changes.",
+      "A brief review every 1–2 years helps you catch beneficiary or account changes.",
+      "Coordinate documents with your financial institutions for consistency.",
+    ],
+    bullets: [
+      "Add a recurring calendar reminder to review.",
+      "Meet professionals when your life changes.",
+      "Keep your executors and trustees informed.",
+    ],
+    author: "Taylor Brooks",
+    date: "Sep 14, 2025",
+    readTime: "3 min",
+    sourceUrl: "https://example.com/guides/update-frequency",
+  },
+  {
+    id: "a5",
+    title: "Tax Considerations in Estate Planning for 2025",
+    category: "Tax",
+    summary: "Exemptions, gifting strategies, and charitable planning.",
+    content: [
+      "Annual exclusion gifts can reduce future estate size while helping loved ones today.",
+      "Charitable remainder trusts can provide income while supporting causes.",
+      "Monitor federal and state thresholds; they evolve with legislation.",
+    ],
+    bullets: [
+      "Leverage annual exclusions strategically.",
+      "Coordinate gifts with income needs.",
+      "Use donor-advised funds for simplicity.",
+    ],
+    author: "Morgan Chen, CFP",
+    date: "Sep 10, 2025",
+    readTime: "7 min",
+    sourceUrl: "https://example.com/tax/2025-considerations",
+  },
+  {
+    id: "a6",
+    title: "Digital Assets: Planning Beyond Paper",
+    category: "Digital",
+    summary: "Include passwords, crypto, domains, and cloud photo libraries.",
+    content: [
+      "Create a secure inventory of your digital accounts and assets and how to access them.",
+      "Consider appointing a 'digital executor' where permitted by law.",
+      "Back up critical information in encrypted formats and keep instructions current.",
+    ],
+    bullets: [
+      "Maintain a password manager emergency kit.",
+      "Document crypto wallet recovery steps.",
+      "Review provider legacy tools (e.g., Apple/Google).",
+    ],
+    author: "Riley Summers",
+    date: "Sep 8, 2025",
+    readTime: "5 min",
+    sourceUrl: "https://example.com/digital/asset-planning",
+  },
+  {
+    id: "a7",
+    title: "Blended Families and Beneficiary Designations",
+    category: "Family",
+    summary: "Prevent unintentional disinheritance with careful design.",
+    content: [
+      "Second marriages and stepchildren add complexity—beneficiary design should reflect your true wishes.",
+      "Trust structures can balance current spouse support with children from prior relationships.",
+      "Clear communication reduces conflict later.",
+    ],
+    bullets: [
+      "Align retirement account beneficiaries with goals.",
+      "Consider QTIP trusts for spouse support.",
+      "Explain intentions to reduce surprises.",
+    ],
+    author: "Avery Kim",
+    date: "Sep 4, 2025",
+    readTime: "6 min",
+    sourceUrl: "https://example.com/family/blended-beneficiaries",
+  },
+  {
+    id: "a8",
+    title: "Charitable Giving: From Bequests to CRTs",
+    category: "Charitable",
+    summary: "Make an impact while optimizing taxes and income.",
+    content: [
+      "Simple bequests are effective; more advanced options include charitable remainder trusts and pooled income funds.",
+      "Coordinate with your estate and income tax planning for best results.",
+    ],
+    bullets: [
+      "Name charities in wills or trusts.",
+      "Use appreciated assets for tax efficiency.",
+      "DAFs simplify ongoing giving.",
+    ],
+    author: "Sam Patel",
+    date: "Aug 30, 2025",
+    readTime: "5 min",
+    sourceUrl: "https://example.com/charitable/giving-options",
+  },
+  {
+    id: "a9",
+    title: "Executor Readiness: Duties, Checklists, and Timelines",
+    category: "Administration",
+    summary: "Prepare your executor to act quickly and confidently.",
+    content: [
+      "Executors should know where documents are stored, who the advisors are, and how to access key accounts.",
+      "A checklist with contacts, account numbers, and passwords (secured) is invaluable.",
+    ],
+    bullets: [
+      "Centralize documents and contacts.",
+      "Pre-appoint co-executors if helpful.",
+      "Review responsibilities annually.",
+    ],
+    author: "Chris Nguyen",
+    date: "Aug 25, 2025",
+    readTime: "4 min",
+    sourceUrl: "https://example.com/admin/executor-readiness",
+  },
+  {
+    id: "a10",
+    title: "Healthcare Directives and Living Wills",
+    category: "Healthcare",
+    summary: "Express your treatment preferences and appoint decision-makers.",
+    content: [
+      "A living will outlines your preferences for medical treatment in certain scenarios.",
+      "A healthcare power of attorney appoints someone to make decisions when you cannot.",
+      "State-specific forms may be required—follow local rules.",
+    ],
+    bullets: ["Discuss wishes with family.", "Share documents with providers.", "Carry an ICE medical note."],
+    author: "Jamie Rivera",
+    date: "Aug 20, 2025",
+    readTime: "5 min",
+    sourceUrl: "https://example.com/healthcare/directives",
+  },
+]
+
+const news = [
+  {
+    id: "n1",
+    title: "IRS updates annual exclusion gift limits for 2026 forecast",
+    source: "Financial Journal",
+    time: "2h ago",
+    url: "https://example.com/news/irs-exclusion-update",
+  },
+  {
+    id: "n2",
+    title: "Several states adopt transfer-on-death deeds for real estate",
+    source: "Policy Watch",
+    time: "6h ago",
+    url: "https://example.com/news/tod-deeds",
+  },
+  {
+    id: "n3",
+    title: "Digital legacy laws expand in multiple jurisdictions",
+    source: "Tech & Law",
+    time: "Yesterday",
+    url: "https://example.com/news/digital-legacy-laws",
+  },
+  {
+    id: "n4",
+    title: "Charitable giving trends rise amid market volatility",
+    source: "Philanthropy Daily",
+    time: "2d ago",
+    url: "https://example.com/news/charitable-trends",
+  },
+]
+
+/* ---------------------------
+   DOM Helpers
+---------------------------- */
+const $ = (sel, parent = document) => parent.querySelector(sel)
+const $$ = (sel, parent = document) => Array.from(parent.querySelectorAll(sel))
+
+function createCard(article) {
+  const tpl = $("#card-template")
+  const node = tpl.content.firstElementChild.cloneNode(true)
+  node.dataset.id = article.id
+  $(".card-category", node).textContent = article.category
+  $(".card-title", node).textContent = article.title
+  $(".card-summary", node).textContent = article.summary
+  $(".card-meta", node).textContent = `${article.author} • ${article.date} • ${article.readTime}`
+  node.addEventListener("click", () => openModal(article.id))
+  node.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault()
+      openModal(article.id)
+    }
+  })
+  const media = $(".card-media", node)
+  if (article.imageUrl) {
+    media.style.backgroundImage = `url('${article.imageUrl}')`
+    media.style.backgroundSize = "cover"
+    media.style.backgroundPosition = "center"
+    media.style.backgroundColor = "#0b1224"
+  }
+  return node
+}
+
+/* ---------------------------
+   Rendering
+---------------------------- */
+const state = {
+  category: "All",
+  query: "",
+}
+
+function renderTabs() {
+  const cats = ["All", ...Array.from(new Set(articles.map((a) => a.category)))]
+  const tablist = $("#tablist")
+  tablist.innerHTML = ""
+  cats.forEach((cat) => {
+    const li = document.createElement("li")
+    const btn = document.createElement("button")
+    btn.type = "button"
+    btn.role = "tab"
+    btn.textContent = cat
+    btn.setAttribute("aria-selected", state.category === cat ? "true" : "false")
+    btn.addEventListener("click", () => {
+      state.category = cat
+      renderTabs()
+      renderArticles()
+    })
+    li.appendChild(btn)
+    tablist.appendChild(li)
+  })
+}
+
+function renderFeatured() {
+  const [first] = getFilteredArticles()
+  if (!first) return
+  $("#featured").dataset.id = first.id
+  $("#featured-category").textContent = first.category
+  $("#featured-title").textContent = first.title
+  $("#featured-desc").textContent = first.summary
+  $("#featured-meta").textContent = `${first.author} • ${first.date} • ${first.readTime}`
+
+  const fm = $(".featured-media")
+  if (first.imageUrl) {
+    fm.style.backgroundImage = `url('${first.imageUrl}')`
+    fm.style.backgroundSize = "cover"
+    fm.style.backgroundPosition = "center"
+    fm.style.backgroundColor = "#0b1224"
+  } else {
+    fm.style.backgroundImage = ""
+  }
+}
+
+function getFilteredArticles() {
+  const q = state.query.trim().toLowerCase()
+  return articles.filter((a) => {
+    const catOk = state.category === "All" || a.category === state.category
+    const qOk = !q || [a.title, a.summary, a.category, a.author].join(" ").toLowerCase().includes(q)
+    return catOk && qOk
+  })
+}
+
+function renderArticles() {
+  const wrap = $("#articles-grid")
+  wrap.innerHTML = ""
+  const list = getFilteredArticles()
+  list.slice(0, 9).forEach((a) => wrap.appendChild(createCard(a)))
+  renderFeatured()
+}
+
+function renderNews() {
+  const ul = $("#news-list")
+  ul.innerHTML = ""
+  news.forEach((n) => {
+    const li = document.createElement("li")
+    li.className = "news-item"
+    const a = document.createElement("a")
+    a.href = n.url
+    a.target = "_blank"
+    a.rel = "noopener"
+    a.innerHTML = `<strong>${escapeHtml(n.title)}</strong><div class="source">${escapeHtml(n.source)} • ${escapeHtml(n.time)}</div>`
+    li.appendChild(a)
+    ul.appendChild(li)
+  })
+}
+
+/* ---------------------------
+   Modal
+---------------------------- */
+let lastFocused = null
+function openModal(articleId) {
+  const a = articles.find((x) => x.id === articleId)
+  if (!a) return
+
+  // Fill content
+  $("#modal-category").textContent = a.category
+  $("#modal-title").textContent = a.title
+  $("#modal-meta").textContent = `${a.author} • ${a.date} • ${a.readTime}`
+  $("#modal-desc").textContent = a.summary
+  const body = $("#modal-body")
+  body.innerHTML = ""
+  a.content.forEach((p) => {
+    const el = document.createElement("p")
+    el.textContent = p
+    body.appendChild(el)
+  })
+  if (a.bullets?.length) {
+    const ul = document.createElement("ul")
+    a.bullets.forEach((b) => {
+      const li = document.createElement("li")
+      li.textContent = b
+      ul.appendChild(li)
+    })
+    body.appendChild(ul)
+  }
+  const src = $("#modal-source")
+  src.href = a.sourceUrl
+
+  // Show modal
+  const modal = $("#modal")
+  modal.setAttribute("aria-hidden", "false")
+  lastFocused = document.activeElement
+
+  // Focus trapping
+  const focusables = getFocusable(modal)
+  const first = focusables[0] || $(".modal-close")
+  first?.focus()
+
+  function onKeydown(e) {
+    if (e.key === "Escape") closeModal()
+    if (e.key === "Tab") {
+      // trap
+      const elems = getFocusable(modal)
+      if (elems.length === 0) return
+      const idx = elems.indexOf(document.activeElement)
+      if (e.shiftKey && idx <= 0) {
+        e.preventDefault()
+        elems[elems.length - 1].focus()
+      } else if (!e.shiftKey && idx === elems.length - 1) {
+        e.preventDefault()
+        elems[0].focus()
+      }
+    }
+  }
+  modal.addEventListener("keydown", onKeydown)
+  modal.dataset.keyListener = "true"
+}
+
+function closeModal() {
+  const modal = $("#modal")
+  modal.setAttribute("aria-hidden", "true")
+  if (lastFocused && typeof lastFocused.focus === "function") {
+    lastFocused.focus()
+  }
+}
+
+function getFocusable(root) {
+  const selectors = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "textarea:not([disabled])",
+    "select:not([disabled])",
+    "[tabindex]:not([tabindex='-1'])",
+  ].join(",")
+  return $$(selectors, root).filter((el) => el.offsetParent !== null)
+}
+
+/* ---------------------------
+   Search & Forms
+---------------------------- */
+function wireSearch() {
+  $("#search-form").addEventListener("submit", (e) => {
+    e.preventDefault()
+    const q = $("#search-input").value || ""
+    state.query = q
+    renderArticles()
+  })
+}
+
+function wireFeatured() {
+  const featured = $("#featured")
+  featured.addEventListener("click", () => {
+    const id = featured.dataset.id
+    if (id) openModal(id)
+  })
+  featured.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault()
+      const id = featured.dataset.id
+      if (id) openModal(id)
+    }
+  })
+}
+
+function wireNewsletter() {
+  $("#newsletter-form").addEventListener("submit", (e) => {
+    e.preventDefault()
+    const email = $("#nl-email").value.trim()
+    const status = $("#newsletter-status")
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      status.style.color = "#ef4444"
+      status.textContent = "Please enter a valid email address."
+      return
+    }
+    status.style.color = "var(--color-accent)"
+    status.textContent = "Thanks! Please check your inbox to confirm your subscription."
+    $("#nl-email").value = ""
+  })
+}
+
+/* ---------------------------
+   Global listeners
+---------------------------- */
+function wireModal() {
+  $$(".modal [data-dismiss]").forEach((btn) => {
+    btn.addEventListener("click", closeModal)
+  })
+  document.addEventListener("keydown", (e) => {
+    const visible = $("#modal").getAttribute("aria-hidden") === "false"
+    if (visible && e.key === "Escape") closeModal()
+  })
+  // Backdrop click
+  $(".modal-backdrop").addEventListener("click", closeModal)
+}
+
+/* ---------------------------
+   Utils
+---------------------------- */
+function escapeHtml(str) {
+  return (str || "").replace(
+    /[&<>"']/g,
+    (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[m],
+  )
+}
+
+/* ---------------------------
+   Init
+---------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  renderTabs()
+  renderArticles()
+  renderNews()
+  wireSearch()
+  wireFeatured()
+  wireNewsletter()
+  wireModal()
+})
+
+// add Google-hosted image URLs and assign to articles
+const imageMap = {
+  a1: "https://www.gstatic.com/webp/gallery/1.jpg",
+  a2: "https://www.gstatic.com/webp/gallery/2.jpg",
+  a3: "https://www.gstatic.com/webp/gallery/3.jpg",
+  a4: "https://www.gstatic.com/webp/gallery/4.jpg",
+  a5: "https://www.gstatic.com/webp/gallery/5.jpg",
+  a6: "https://www.gstatic.com/webp/gallery3/1.png",
+  a7: "https://www.gstatic.com/webp/gallery3/2_webp_ll.png",
+  a8: "https://www.gstatic.com/webp/gallery3/3_webp_ll.png",
+  a9: "https://www.gstatic.com/webp/gallery3/4_webp_ll.png",
+  a10: "https://www.gstatic.com/webp/gallery3/5_webp_ll.png",
+}
+articles.forEach(a => { if (imageMap[a.id]) a.imageUrl = imageMap[a.id] })
+
+    </script>
+  </body>
+</html>
